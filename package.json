@@ -1,0 +1,63 @@
+{
+  "name": "jasmine-node-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "ts-node spec/jasmine.ts",
+    "test-coverage": "nyc npm run test",
+    "start": "node dist/app.js",
+    "compile": "tsc && node ./dist/app.js",
+    "dev": "nodemon -e ts,js -i dist -i spec  --exec \"npm run compile\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raj-here/jasmine-node-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raj-here/jasmine-node-test/issues"
+  },
+  "homepage": "https://github.com/raj-here/jasmine-node-test#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.19"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.0",
+    "@types/express": "^4.17.6",
+    "@types/jasmine": "^3.5.10",
+    "@types/mongoose": "^5.7.26",
+    "@types/node": "^14.0.13",
+    "jasmine": "^3.5.0",
+    "nodemon": "^2.0.4",
+    "nyc": "^15.1.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5"
+  },
+  "nyc": {
+    "include": [
+      "server"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "reporter": [
+      "text-summary",
+      "html",
+      "lcov"
+    ],
+    "all": true,
+    "lines": 95,
+    "statements": 95,
+    "functions": 95,
+    "branches": 95,
+    "sourceMap": true,
+    "instrument": true,
+    "check-coverage": true
+  }
+}
